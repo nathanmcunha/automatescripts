@@ -1,0 +1,68 @@
+176,uf,localTrabDom,E,C,1-1,002,-,"Preencher com a sigla da Unidade da Federação
+Validação: Deve ser uma UF válida."
+177,horContratual,infoContrato,G,-,0-1,-,-,Informações do Horário Contratual do Trabalhador.   O preenchimento é obrigatório se {tpRegJor} = [1].
+178,qtdHrsSem,horContratual,E,N,1-1,004,2,"Quantidade média de horas relativas à jornada semanal do trabalhador
+Validação: Deve ser maior que zero."
+179,tpJornada,horContratual,E,N,1-1,001,-,"Tipo da Jornada. Preencher com uma das opções:
+1 - Jornada com horário diário e folga fixos;
+2 - Jornada 12 x 36 (12 horas de trabalho seguidas de 36 horas ininterruptas
+de descanso);
+3 - Jornada com horário diário fixo e folga variável;
+9 - Demais tipos de jornada.
+Valores Válidos: 1, 2, 3, 9."
+180,dscTpJorn,horContratual,E,C,0-1,100,-,"Descrição do tipo de jornada.
+Validação: Deve ser preenchido se {tpJornada} = [9]"
+181,tmpParc,horContratual,E,C,1-1,001,-,"Contrato de trabalho em regime de tempo parcial, ou seja, aquele cuja jornada
+semanal não exceda 25 horas semanais.
+Valores Válidos: S, N."
+182,horario,horContratual,G,-,0-99,-,-,Informações diárias do horário contratual
+183,dia,horario,E,N,1-1,001,-,"Preencher com o código relativo ao dia do horário:
+1 - Segunda-Feira;
+2 - Terça-Feira;
+3 - Quarta-Feira;
+4 - Quinta-Feira;
+5 - Sexta-Feira;
+6 - Sábado;
+7 - Domingo;
+8 - Dia variável.
+Valores Válidos: 1, 2, 3, 4, 5, 6, 7, 8."
+184,codHorContrat,horario,E,C,1-1,030,-,"Preencher com o código atribuído pela empresa para o Horário Contratual.
+Validação: O valor informado deve existir na Tabela de Horários/Turnos de
+Trabalho - S-1050."
+185,filiacaoSindical,infoContrato,G,-,0-2,-,-,Filiação Sindical do Trabalhador
+186,cnpjSindTrab,filiacaoSindical,E,C,1-1,014,-,"Preencher com o CNPJ do sindicato ao qual o trabalhador encontra-se filiado.
+Validação: Deve ser um CNPJ válido."
+187,alvaraJudicial,infoContrato,G,-,0-1,-,-,"Informações do alvará judicial em caso de contratação de menores de 14 anos, em qualquer categoria, e de maiores de 14 e menores de 16, em categoria" diferente de ""Aprendiz""."
+188,nrProcJud,alvaraJudicial,E,C,1-1,020,-,"Preencher com o número do processo judicial.
+Validação: Deve ser um número de processo judicial válido, existente na
+Tabela de Processos - S-1070."
+189,sucessaoVinc,vinculo,G,-,0-1,-,-,Grupo de informações da sucessão de vínculo trabalhista/estatutário
+190,cnpjEmpregAnt,sucessaoVinc,E,C,1-1,014,-,"Preencher com o número do CNPJ do empregador anterior.
+Validação: Deve ser um CNPJ válido diferente do CNPJ do declarante,
+considerando as particularidades aplicadas à informação de CNPJ de órgão
+público em S-1000."
+191,matricAnt,sucessaoVinc,E,C,0-1,030,-,"Matrícula do trabalhador no empregador anterior.
+Validação: O preenchimento é obrigatório se {cadIni} = [N]"
+192,dtIniVinculo,sucessaoVinc,E,D,1-1,-,-,"Data de início do vínculo trabalhista. Se houver mais de uma empresa na
+cadeia sucessória, deve ser a data inicial do vínculo na primeira empresa.
+Validação: Deve ser uma data anterior a Data de Admissão do Trabalhador"
+193,observacao,sucessaoVinc,E,C,0-1,255,-,Observação
+194,afastamento,vinculo,G,-,0-1,-,-,Informações de afastamento do trabalhador. Preenchimento exclusivo em caso de trabalhador que permaneça afastado na data de início da obrigatoriedade do empregador no eSocial ou no momento da admissão por motivo de transferência em caso sucessão, incorporação, cisão ou fusão."
+195,dtIniAfast,afastamento,E,D,1-1,-,-,"Data de início do afastamento
+Validação: Devem ser observadas as seguintes regras:
+a) Se {cadIni} = [S]:
+a1) Deve ser anterior à data de início da obrigatoriedade do eSocial para o
+empregador;
+a2) Deve ser igual ou posterior à data de Admissão/Exercício do trabalhador
+ou, no caso de sucessão, igual ou posterior à data de início do vínculo
+trabalhista {dtIniVinculo};
+b) Se {cadIni} = [N]:
+b1) Deve ser igual ou posterior à data de início do vínculo trabalhista,
+{dtIniVinculo} e anterior à data de admissão/Exercício do trabalhador;
+b2) {tpAdmissao} deve ser igual a [2, 3, 4]."
+196,codMotAfast,afastamento,E,C,1-1,002,-,"Preencher com o código do motivo de afastamento temporário, conforme
+tabela 18.
+Validação: Deve ser um código existente na tabela 18."
+197,desligamento,vinculo,G,-,0-1,-,-,Informações do desligamento do trabalhador. Registro preenchido exclusivamente caso seja necessário enviar cadastramento inicial referente a trabalhador que já tenha sido desligado da empresa antes do início do eSocial (ex: envio para pagamento de diferenças salariais - acordo/dissídio/convenção coletiva - em meses posteriores ao desligamento e sob vigência do eSocial)
+198,dtDeslig,desligamento,E,D,1-1,-,-,"Preencher com a data do último dia trabalhado para o respectivo vínculo
+Validação: Deve ser uma data igual ou posterior à data de admissão e anterior" ao início da obrigatoriedade do eSocial para o empregador.
